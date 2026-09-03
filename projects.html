@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Projects — April Zhang</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<nav class="site-nav">
+  <div class="container">
+    <a href="index.html" class="wordmark">April Zhang<span class="dot">.</span></a>
+    <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="projects.html" class="active">Projects</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main>
+  <div class="container">
+    <section class="hero" style="padding-bottom: 12px;">
+      <div class="hero-eyebrow">Selected work</div>
+      <h1 style="font-size: clamp(2rem, 5vw, 2.8rem);">Projects</h1>
+      <p class="hero-tagline">A research project from this summer, a hackathon build, and an ongoing dashboard for GDG. More to come.</p>
+    </section>
+
+    <div id="rag" class="project rule-top">
+      <div class="project-icon">
+        <svg width="34" height="34" viewBox="0 0 34 34" fill="none" aria-hidden="true">
+          <rect x="6" y="8" width="22" height="18" rx="1.5" stroke="currentColor" stroke-width="1.6"/>
+          <path d="M10 14h14M10 18h14M10 22h9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <div>
+        <h3>Roadway Compliance RAG System</h3>
+        <span class="where">The Intersection Company &amp; WPI Lab Research — Researcher/Intern, Summer 2026</span>
+        <div class="project-tags">
+          <span>Python</span><span>LangChain</span><span>ChromaDB</span><span>Gemini / Vertex AI</span><span>pandas</span>
+        </div>
+        <p>
+          A retrieval-augmented pipeline that checks real Massachusetts road segments against pavement-marking
+          and accessibility regulations — built in five stages. First, I filtered the state's full road
+          inventory down to segments with genuinely usable shoulder and surface-width data (screening out
+          zeros that just meant "not recorded," not "zero-width"). Next, I chunked and embedded three source
+          documents — MUTCD Chapter 3, MA-PDDG Chapter 5, and PROWAG's technical requirements — into a Chroma
+          vector store, tagging every chunk with its source document for traceability.
+        </p>
+        <p>
+          On top of that I built a compliance checker that retrieves the relevant regulation text per domain
+          (shoulder width, lane width, sidewalk width, crosswalk presence), feeds it to Gemini alongside the
+          road data, and requires a structured JSON verdict citing the exact rule and source — with an explicit
+          rule that PROWAG wins when documents conflict, and "Insufficient Data" over a guess when the
+          numbers just aren't there. I then hardened it for real field data on Lexington road segments,
+          tightening the prompt with explicit edge-line vs. center-line definitions after early runs kept
+          confusing the two, and fixing a token-limit bug that was silently truncating responses. The last
+          stage stress-tested the pipeline against a larger synthetic dataset with resumable, rate-limited
+          runs so a crash wouldn't lose progress. The project wrapped with a final report and a working
+          proof of concept delivered to the company.
+        </p>
+        <div class="project-links">
+          <a class="underline-link" href="https://github.com/A-Zhang0/IntersectionCompanyRAGSystem" target="_blank" rel="noopener">View on GitHub</a>
+        </div>
+      </div>
+    </div>
+
+    <div id="hackathon" class="project">
+      <div class="project-icon">
+        <svg width="34" height="34" viewBox="0 0 34 34" fill="none" aria-hidden="true">
+          <path d="M8 24l6-14 6 14M11 19h6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="24" cy="10" r="3.2" stroke="currentColor" stroke-width="1.6"/>
+        </svg>
+      </div>
+      <div>
+        <h3>DevFest 2026 Itinerary Planner</h3>
+        <span class="where">DevFest 2026 Hackathon — Full-stack, built and demoed with a team</span>
+        <div class="project-tags">
+          <span>Full-stack</span><span>Trip planning</span><span>Optimization</span>
+        </div>
+        <p>
+          Built a trip-planning app end to end with a team: it generates day-by-day itineraries, lets
+          people plan and adjust trips collaboratively, and factors in budget and logistics rather than
+          just listing sights. I worked across the stack, roughly evenly split between frontend and
+          backend. We finished and demoed a working version by the end of the event.
+        </p>
+        <div class="project-links">
+          <a class="underline-link" href="https://github.com/ananyaasri783/DevFest-2026-Itinerary-Planner" target="_blank" rel="noopener">View on GitHub</a>
+        </div>
+        <div class="placeholder-note">
+          Add a screenshot or short demo clip here if you have one — a quick GIF of the itinerary being
+          generated will do more than a paragraph of description.
+        </div>
+      </div>
+    </div>
+
+    <div id="florasense" class="project">
+      <div class="project-icon">
+        <svg width="34" height="34" viewBox="0 0 34 34" fill="none" aria-hidden="true">
+          <path d="M17 26V12M17 12c-4 0-6-3-6-7 4 0 7 2 7 6M17 12c4 0 6-3 6-7-4 0-7 2-7 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <div>
+        <h3>FloraSense</h3>
+        <span class="where">Google Developer Group — Developer, Jan 2026 – Present</span>
+        <div class="project-tags">
+          <span>Java</span><span>APIs</span><span>Analytics</span>
+        </div>
+        <p>
+          Working with a small team to apply software solutions to real-world company analytics.
+          I contribute to backend logic and data processing using external APIs and Java, building
+          out an analytics dashboard aimed at making the underlying data simple to read at a glance —
+          including a Plant ID Success Metrics view that tracks identification accuracy across services.
+        </p>
+        <figure class="project-screenshot">
+          <img src="assets/florasense-dashboard.png" alt="FloraSense dashboard showing Gemini and GPT plant identification success rates as pie charts, and a log-scale bar chart comparing successes and failures across gemini, gpt, webid, and unspecified services.">
+          <figcaption>Plant ID Success Metrics — Gemini holds a 69.4% success rate versus GPT's 92.5% on the same identification task, tracked here alongside raw volume by service.</figcaption>
+        </figure>
+        <div class="placeholder-note">
+          If you can talk about it: worth a line here on why Gemini and GPT differ so much on the same
+          task — that gap is the most interesting number on the page.
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="container" style="display:flex; justify-content:space-between; width:100%; flex-wrap:wrap; gap:10px;">
+    <span>April Zhang, 2026</span>
+    <a href="contact.html" class="underline-link">Get in touch</a>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
